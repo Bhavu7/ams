@@ -1,0 +1,780 @@
+:root {
+    --headerBG: #2e7d32;
+    /* Changed to green theme for teacher dashboard */
+    --headingText: rgb(237, 237, 237);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+    background-color: var(--headerBG);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+header a,
+h1 {
+    color: var(--headingText);
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+nav {
+    background-color: #f1f8e9;
+    padding: 0.5rem;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10rem;
+    padding: 0.3rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+nav ul li a {
+    color: var(--headerBG);
+    font-weight: 600;
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #1b5e20;
+}
+
+.content {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.profile-section {
+    display: none;
+    max-width: 900px;
+    margin: 0rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.classes-section {
+    display: none;
+}
+
+.attendance-section {
+    display: none;
+}
+
+.profile-header {
+    color: var(--headerBG);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.profile-image-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.profile-image-container {
+    text-align: center;
+    position: relative;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--headerBG);
+    padding: 3px;
+}
+
+.profile-image-input {
+    display: none;
+}
+
+.image-upload-label {
+    display: none;
+    color: var(--headerBG);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.profile-section-title {
+    grid-column: 1 / -1;
+    color: var(--headerBG);
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+    margin-top: 1rem;
+}
+
+.profile-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.profile-field label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.profile-text {
+    font-size: 1.1rem;
+    color: #333;
+    padding: 0.5rem 0;
+}
+
+.profile-input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    display: none;
+}
+
+.editing .profile-text {
+    display: none;
+}
+
+.editing .profile-input {
+    display: block;
+}
+
+.editing .image-upload-label {
+    display: block;
+}
+
+.profile-buttons {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.edit-button {
+    padding: 0.75rem 2rem;
+    background-color: var(--headerBG);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #1b5e20;
+}
+
+.attendance-section h2 {
+    margin-bottom: 2vw;
+}
+
+.attendance-filters {
+    background-color: #f1f8e9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.attendance-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filter-group select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+
+.view-button {
+    padding: 0.5rem 1rem;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.view-button:hover {
+    background-color: #1b5e20;
+}
+
+.report-button {
+    padding: 0.5rem 1rem;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.report-button:hover {
+    background-color: #1557b0;
+}
+
+.submit_attendance {
+    padding: 0.75rem 1.5rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit_attendance:hover {
+    background-color: #d32f2f;
+}
+
+.attendance-table-container {
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.table-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.student-table th,
+.student-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.student-table th {
+    background-color: #2e7d32;
+    color: #fff;
+}
+
+.profile-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Style the checkboxes */
+.attendance-status {
+    appearance: none;
+    /* Remove default checkbox appearance */
+    width: 20px;
+    /* Set the size of the checkbox */
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+}
+
+/* When checkbox is checked */
+.attendance-status:checked {
+    background-color: #34a853;
+    /* Green for present */
+    border-color: #34a853;
+}
+
+.attendance-status:checked[value="absent"] {
+    background-color: #f44336;
+    /* Red for absent */
+    border-color: #f44336;
+}
+
+/* Present Checkbox - Checkmark symbol */
+.attendance-status[value="present"]:checked::before {
+    content: "✔";
+    /* Checkmark symbol for present */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    color: white;
+}
+
+/* Absent Checkbox - Cross symbol */
+.attendance-status[value="absent"]:checked::before {
+    content: "✘";
+    /* Cross symbol for absent */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    color: white;
+}
+
+/* Optional: When unchecked, the checkbox is just an empty box */
+.attendance-status:not(:checked)::before {
+    content: "";
+}
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.75rem;
+    }
+
+    header a,
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0px;
+    }
+
+    nav {
+        padding: 0.2rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        gap: 9vw;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .report-section h2 {
+        font-size: 1.1rem;
+        margin-top: 20px;
+    }
+
+    .attendance-section h2 {
+        font-size: 1.1rem;
+        margin-top: 20px;
+    }
+
+    .filter-group select {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .view-button {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .report-button {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .submit_attendance {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.75rem;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .attendance-table-container {
+        padding: 20px;
+        overflow-x: auto;
+    }
+
+    .table-container {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .student-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .student-table th,
+    .student-table td {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .profile-photo {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Style the checkboxes */
+    .attendance-status {
+        width: 15px;
+        height: 15px;
+    }
+
+    .attendance-status[value="present"]:checked::before {
+        content: "✔";
+        line-height: 15px;
+        font-size: 10px;
+    }
+
+    /* Absent Checkbox - Cross symbol */
+    .attendance-status[value="absent"]:checked::before {
+        content: "✘";
+        line-height: 15px;
+        font-size: 10px;
+    }
+
+    .profile-section {
+        display: none;
+        max-width: 900px;
+        margin: 0rem auto;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .classes-section {
+        display: none;
+    }
+
+    .profile-header h2 {
+        font-size: 0.5rem;
+    }
+
+    .profile-image-section {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .profile-image-container {
+        text-align: center;
+        position: relative;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border: 3px solid var(--headerBG);
+        padding: 3px;
+    }
+
+    .image-upload-label {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .profile-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-section-title {
+        grid-column: 1 / -1;
+        font-size: 1.1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #eee;
+        margin-top: 1rem;
+    }
+
+    .profile-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .profile-field label {
+        font-size: 0.7rem;
+    }
+
+    .profile-text {
+        font-size: 0.9rem;
+        padding: 0.4rem 0;
+    }
+
+    .profile-input {
+        padding: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .profile-buttons {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .edit-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 426px) {
+    header {
+        padding: 0.75rem;
+    }
+
+    header a,
+    h1 {
+        font-size: 1.1rem;
+        margin-bottom: 0px;
+    }
+
+    nav {
+        padding: 0.2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 3vw;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .attendance-section h2 {
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+
+    .filter-group select {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .view-button {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .report-button {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .submit_attendance {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.75rem;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .attendance-table-container {
+        padding: 20px;
+        overflow-x: auto;
+    }
+
+    .table-container {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .student-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .student-table th,
+    .student-table td {
+        padding: 5px;
+        font-size: 10px;
+    }
+
+    .profile-photo {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Style the checkboxes */
+    .attendance-status {
+        width: 15px;
+        height: 15px;
+    }
+
+    .attendance-status[value="present"]:checked::before {
+        content: "✔";
+        line-height: 15px;
+        font-size: 10px;
+    }
+
+    /* Absent Checkbox - Cross symbol */
+    .attendance-status[value="absent"]:checked::before {
+        content: "✘";
+        line-height: 15px;
+        font-size: 10px;
+    }
+
+    .profile-section {
+        display: none;
+        max-width: 900px;
+        margin: 0rem auto;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .classes-section {
+        display: none;
+    }
+
+    .profile-container h2 {
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+
+    .profile-header h2 {
+        font-size: 0.5rem;
+    }
+
+    .profile-image-section {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .profile-image-container {
+        text-align: center;
+        position: relative;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        padding: 3px;
+    }
+
+    .image-upload-label {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .profile-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-section-title {
+        font-size: 1rem;
+        margin-top: 0.6rem;
+    }
+
+    .profile-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+    }
+
+    .profile-field label {
+        font-size: 0.7rem;
+    }
+
+    .profile-text {
+        font-size: 0.9rem;
+        padding: 0.4rem 0;
+    }
+
+    .profile-input {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .profile-buttons {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .edit-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.75rem;
+    }
+}

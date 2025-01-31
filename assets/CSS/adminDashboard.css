@@ -1,0 +1,923 @@
+  :root {
+    --headerBG: #1a73e8;
+    --headingText: rgb(237, 237, 237);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  header {
+    background-color: var(--headerBG);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  header a,
+  h1 {
+    color: var(--headingText);
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+
+  header p span {
+    font-size: clamp(0.8rem, 0.8vw, 1rem);
+    color: #fff;
+  }
+
+  nav {
+    background-color: aliceblue;
+    padding: 0.5rem;
+  }
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6rem;
+    padding: 0.5rem;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  nav ul li a {
+    color: var(--headerBG);
+    font-weight: 600;
+    font-size: clamp(1.2rem, 1.2vw, 1.3rem);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #0d47a1;
+  }
+
+  .teacher-section,
+  .student-section {
+    display: none;
+    /* Initially hide the sections */
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .teacher-form,
+  .student-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    /* Center align the inputs */
+    margin-bottom: 1rem;
+  }
+
+  .teacher-form input,
+  .student-form input,
+  .student-form select {
+    width: 300px;
+    /* Set a fixed width for the input fields */
+    padding: 0.5rem;
+    border: 1px solid var(--headerBG);
+    border-radius: 5px;
+    text-align: left;
+    /* Center align text inside input fields */
+  }
+
+  .teacher-form input::placeholder,
+  .student-form input::placeholder {
+    text-align: left;
+  }
+
+  .teacher-buttons,
+  .student-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    /* Center align buttons */
+  }
+
+  .teacher-buttons button,
+  .student-buttons button {
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--headerBG);
+    color: white;
+    transition: background-color 0.3s;
+  }
+
+  .teacher-buttons button:hover,
+  .student-buttons button:hover {
+    background-color: #1360d2;
+  }
+
+  /* attendance section */
+
+  .attendance-section {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .attendance-filters {
+    margin-bottom: 2rem;
+  }
+
+  .attendance-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .filter-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filter-group select {
+    padding: 0.5rem;
+    border: 1px solid var(--headerBG);
+    border-radius: 5px;
+    min-width: 200px;
+  }
+
+/* Profile Section Styling */
+.profile-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  color: var(--headerBG);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.profile-image-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.profile-image-container {
+  text-align: center;
+  position: relative;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--headerBG);
+  padding: 3px;
+}
+
+.profile-image-input {
+  display: none;
+}
+
+.image-upload-label {
+  display: none;
+  color: var(--headerBG);
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.editing .image-upload-label {
+  display: block;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.profile-section-title {
+  grid-column: 1 / -1;
+  color: var(--headerBG);
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
+  margin-top: 1rem;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-field label {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.profile-text {
+  font-size: 1.1rem;
+  color: #333;
+  padding: 0.5rem 0;
+}
+
+.status-active {
+  color: #34a853;
+  font-weight: 600;
+}
+
+.status-inactive {
+  color: #ea4335;
+  font-weight: 600;
+}
+
+.profile-input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  display: none;
+  background-color: white;
+}
+
+.profile-input:disabled {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 0;
+}
+
+textarea.profile-input {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.profile-buttons {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.edit-button,
+.save-button {
+  padding: 0.75rem 2rem;
+  background-color: var(--headerBG);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover,
+.save-button:hover {
+  background-color: #1360d2;
+}
+
+.editing .profile-text {
+  display: none;
+}
+
+.editing .profile-input {
+  display: block;
+}
+
+/* admin profile */
+.profile-section {
+  display: none;
+  max-width: 900px;
+  margin: 0rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.classes-section {
+  display: none;
+}
+
+.attendance-section {
+  display: none;
+}
+
+.profile-header {
+  color: var(--headerBG);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.profile-image-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.profile-image-container {
+  text-align: center;
+  position: relative;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--headerBG);
+  padding: 3px;
+}
+
+.profile-image-input {
+  display: none;
+}
+
+.image-upload-label {
+  display: none;
+  color: var(--headerBG);
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.profile-section-title {
+  grid-column: 1 / -1;
+  color: var(--headerBG);
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
+  margin-top: 1rem;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-field label {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.profile-text {
+  font-size: 1.1rem;
+  color: #333;
+  padding: 0.5rem 0;
+}
+
+.profile-input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  display: none;
+}
+
+.editing .profile-text {
+  display: none;
+}
+
+.editing .profile-input {
+  display: block;
+}
+
+.editing .image-upload-label {
+  display: block;
+}
+
+.profile-buttons {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.edit-button {
+  padding: 0.75rem 2rem;
+  background-color: #299831;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #1b5e20;
+}
+
+  .attendance-table-container {
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+
+  .attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .attendance-table th,
+  .attendance-table td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .attendance-table th {
+    background-color: var(--headerBG);
+    color: white;
+  }
+  
+  .attendance-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  .view-button {
+    padding: 0.5rem 2rem;
+    background-color: var(--headerBG);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .view-button:hover {
+    background-color: #1360d2;
+  }
+  
+  .view-button {
+    min-width: 150px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .view-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .action-buttons {
+  margin-bottom: 20px;
+}
+
+.action-buttons button {
+  width: 300px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.action-buttons button:hover {
+  background-color: #1557b0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.data-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.data-table td button {
+  padding: 6px 12px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.data-table td button:first-child {
+  background-color: #34a853;
+  color: white;
+}
+
+.data-table td button:last-child {
+  background-color: #ea4335;
+  color: white;
+}
+
+.data-table img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  header a, h1{
+    margin-bottom: 0px;
+  }
+  
+  nav ul{
+    gap: 1.5rem;
+  }
+
+  nav ul li a{
+    font-size: 1rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  #teachers-section h2{
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  #students-section h2{
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  #attendance-section h2{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .teacher-form input,
+  .teacher-form select {
+    width: 300px;
+    padding: 0.4rem;
+  }
+
+  .teacher-form input[type="file"]{
+    width: 300px;
+    padding: 0.3rem;
+  }
+
+  .student-form input{
+    width: 300px;
+    padding: 0.4rem;
+  }
+
+  .student-form select{
+    width: 300px;
+    padding: 0.4rem;
+  }
+
+  .student-form input[type="file"]{
+    width: 300px;
+    padding: 0.3rem;
+  }
+
+  .action-buttons button{
+    padding: 8px 10px;
+  }
+
+  .student-buttons,
+  .teacher-buttons {
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .teacher-buttons button,
+  .student-buttons button {
+    padding: 0.5rem 0rem;
+  }
+
+  .filter-group select {
+    padding: 0.4rem;
+  }
+
+  .filter-group input[type="date"]{
+    padding: 0.4rem;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-section {
+    padding: 1rem;
+  }
+  
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-field label {
+    font-size: 1rem;
+  }
+
+  .profile-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .filter-group {
+    flex-direction: column;
+  }
+
+  .filter-group select,
+  .view-button {
+    width: 100%;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .view-button {
+    width: 100%;
+  }
+
+  .updateDeleteBtn {
+    width: fit-content;
+  }
+
+  .update-button{
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+  .delete-button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  /* admin profile */
+.profile-section {
+  max-width: 900px;
+  margin: 0rem auto;
+  padding: 2rem;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  padding: 3px;
+}
+
+.profile-section-title {
+  font-size: 1rem;
+}
+
+.profile-field {
+  gap: 0.4rem;
+}
+
+.profile-field label {
+  color: #666;
+  font-size: 0.7rem;
+}
+
+.profile-text {
+  font-size: 1rem;
+  padding: 0.4rem 0;
+}
+
+.profile-input {
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+.edit-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+}
+}
+
+@media (max-width: 426px) {
+  header{
+    padding: 0.5rem;
+  }
+  header a h1{
+    font-size: 1.2rem;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+  
+  #teachers-section h2{
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .teacher-form input,
+  .teacher-form select {
+    width: 250px;
+    padding: 0.3rem;
+  }
+
+  .teacher-form input::placeholder{
+    font-size: 12px;
+  }
+
+  .teacher-form input[type="file"]{
+    width: 250px;
+    padding: 0.2rem;
+  }
+
+  #students-section h2{
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .student-form input{
+    width: 250px;
+    padding: 0.4rem;
+  }
+
+  .student-form select{
+    width: 250px;
+    padding: 0.4rem;
+  }
+
+  .student-form select option{
+    font-size: 12px;
+  }
+
+  .student-form input[type="file"]{
+    width: 250px;
+    padding: 0.2rem;
+  }
+
+  .student-form input::placeholder{
+    font-size: 12px;
+  }
+
+  .action-buttons button{
+    padding: 8px 10px;
+  }
+
+  .student-buttons,
+  .teacher-buttons {
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .teacher-buttons button,
+  .student-buttons button {
+    padding: 0.5rem 0rem;
+  }
+
+  .filter-group select {
+    padding: 0.3rem;
+  }
+
+  .filter-group select option{
+    font-size: 12px;
+  }
+
+  .filter-group input[type="date"]{
+    padding: 0.3rem;
+    font-size: 12px;
+  }
+
+  .action-buttons button{
+    width: 200px;
+    padding: 0.5rem 1.2rem;
+    font-size: 12px;
+  }
+
+  #attendance-section h2{
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-group {
+    flex-direction: column;
+  }
+
+  .filter-group select,
+  .view-button {
+    width: 100%;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .view-button {
+    width: 100%;
+    padding: 0.4rem 1.2rem;
+  }
+
+  .updateDeleteBtn {
+    width: fit-content;
+  }
+
+  .update-button{
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+  .delete-button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .profile-header{
+    font-size: 1.1rem;
+  }
+
+.profile-section {
+  max-width: 900px;
+  margin: 0rem auto;
+  padding: 2rem;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  padding: 3px;
+}
+
+.profile-section-title {
+  font-size: 1rem;
+}
+
+.profile-field {
+  gap: 0.4rem;
+}
+
+.profile-field label {
+  color: #666;
+  font-size: 0.7rem;
+}
+
+.profile-text {
+  font-size: 1rem;
+  padding: 0.4rem 0;
+}
+
+.profile-input {
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+.edit-button {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.75rem;
+}
+}

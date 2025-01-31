@@ -1,0 +1,64 @@
+CREATE TABLE admin_login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE student_mst (
+  roll_number VARCHAR(20) PRIMARY KEY,
+  student_id INT NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  department VARCHAR(20) NOT NULL,
+  division VARCHAR(20) NOT NULL,
+  semester VARCHAR(20) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  phone VARCHAR(15) NOT NULL,
+  photo LONGBLOB
+);
+
+CREATE TABLE admin_mst (
+    admin_id INT,                               -- No auto-increment here
+    full_name VARCHAR(255) NOT NULL,             -- Admin's full name
+    dob DATE NOT NULL,                           -- Admin's date of birth
+    email VARCHAR(255) NOT NULL UNIQUE,          -- Admin's email (must be unique)
+    phone VARCHAR(15) NOT NULL,                  -- Admin's phone number
+    address TEXT NOT NULL,                      -- Admin's address
+    role ENUM('administrator', 'manager') NOT NULL, -- Role of the admin (e.g., Administrator or Manager)
+    department VARCHAR(255) NOT NULL,            -- Department the admin belongs to
+    doj DATE NOT NULL,                          -- Date of joining
+    status ENUM('active', 'inactive') NOT NULL,  -- Current status (active or inactive)
+    profile_image VARCHAR(255),                 -- Path to the profile image (optional)
+    PRIMARY KEY (admin_id),                     -- Set admin_id as the primary key (it references admin_login(id))
+    FOREIGN KEY (admin_id) REFERENCES admin_login(id)  -- Reference to admin_login(id)
+);
+
+
+CREATE TABLE attendance_mst (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    roll_number VARCHAR(50) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    department VARCHAR(50) NOT NULL,
+    division VARCHAR(10) NOT NULL,
+    semester INT NOT NULL,
+    attendance_date DATE NOT NULL,
+    status ENUM('present', 'absent') NOT NULL,
+    photo VARCHAR(255),
+    FOREIGN KEY (roll_number) REFERENCES student_mst(roll_number)
+);
+
+
+CREATE TABLE teacher_mst (
+    teacher_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    dob DATE NOT NULL,
+    doj DATE NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,   -- Plain text password
+    phone VARCHAR(20) NOT NULL,
+    address TEXT NOT NULL,
+    department VARCHAR(255) NOT NULL,
+    qualification VARCHAR(255) NOT NULL,
+    experience VARCHAR(255) NOT NULL,
+    specialization VARCHAR(255) NOT NULL,
+    profile_photo VARCHAR(255) DEFAULT 'uploads/default.jpg' -- Default image path
+);
