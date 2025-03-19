@@ -1091,7 +1091,7 @@ $conn->close();
       </form>
 
       <!-- Student Table -->
-      <div class="student-table-section bg-white p-6 rounded-lg shadow-lg mx-4 mt-12 mb-10 md:mx-auto max-w-7xl" id="student-table-section" style="display:none; height: 70vh; overflow-y: auto;">
+      <div class="student-table-section bg-white p-6 rounded-lg shadow-lg mx-4 mt-20 mb-10 md:mx-auto max-w-7xl" id="student-table-section" style="display:none; height: 70vh; overflow-y: auto;">
         <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Students Information</h2>
         <div class="overflow-x-auto">
           <div class="inline-block min-w-full py-2 align-middle">
@@ -1099,16 +1099,16 @@ $conn->close();
               <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                   <tr>
-                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Photo</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Student ID</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Name</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Roll Number</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Department</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Division</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Semester</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Email</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Phone</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Action</th>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-center text-sm font-semibold text-gray-900">Photo</th>
+                    <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Student ID</th>
+                    <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Name</th>
+                    <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Roll Number</th>
+                    <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Department</th>
+                    <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Division</th>
+                    <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Semester</th>
+                    <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Email</th>
+                    <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Phone</th>
+                    <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Action</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">
